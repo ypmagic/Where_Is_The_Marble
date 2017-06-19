@@ -48,6 +48,16 @@ public class FindMarble {
     private JLabel sevenCenter;
     private JLabel eightCenter;
     private JLabel nineCenter;
+    // for the bomb
+    private JLabel bombOne;
+    private JLabel bombTwo;
+    private JLabel bombThree;
+    private JLabel bombFour;
+    private JLabel bombFive;
+    private JLabel bombSix;
+    private JLabel bombSeven;
+    private JLabel bombEight;
+    private JLabel bombNine;
     // status and restart
     private JLabel status;
     private JButton restart;
@@ -60,6 +70,10 @@ public class FindMarble {
         BufferedImage img2 = ImageIO.read(new File("marble.jpg"));
         Image imgNew2 = img2.getScaledInstance(50, 50, Image.SCALE_SMOOTH);
         ImageIcon icon2 = new ImageIcon(imgNew2);
+
+        BufferedImage img3 = ImageIO.read(new File("bomb.png"));
+        Image imgNew3 = img3.getScaledInstance(50, 50, Image.SCALE_SMOOTH);
+        ImageIcon icon3 = new ImageIcon(imgNew3);
 
         this.oneTop = new JLabel();
         this.oneTop.setIcon(icon);
@@ -108,14 +122,54 @@ public class FindMarble {
         this.nineCenter.setIcon(icon2);
         this.nineCenter.setVisible(false);
 
+        this.bombOne = new JLabel();
+        this.bombOne.setIcon(icon3);
+        this.bombOne.setVisible(false);
+        this.bombTwo = new JLabel();
+        this.bombTwo.setIcon(icon3);
+        this.bombTwo.setVisible(false);
+        this.bombThree = new JLabel();
+        this.bombThree.setIcon(icon3);
+        this.bombThree.setVisible(false);
+        this.bombFour = new JLabel();
+        this.bombFour.setIcon(icon3);
+        this.bombFour.setVisible(false);
+        this.bombFive = new JLabel();
+        this.bombFive.setIcon(icon3);
+        this.bombFive.setVisible(false);
+        this.bombSix = new JLabel();
+        this.bombSix.setIcon(icon3);
+        this.bombSix.setVisible(false);
+        this.bombSeven = new JLabel();
+        this.bombSeven.setIcon(icon3);
+        this.bombSeven.setVisible(false);
+        this.bombEight = new JLabel();
+        this.bombEight.setIcon(icon3);
+        this.bombEight.setVisible(false);
+        this.bombNine = new JLabel();
+        this.bombNine.setIcon(icon3);
+        this.bombNine.setVisible(false);
+
         this.oneBelow = new JButton();
         this.oneBelow.add(this.oneTop);
+        this.oneBelow.add(this.bombOne);
         this.oneBelow.add(this.oneCenter);
         this.oneBelow.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 oneTop.setVisible(false);
-                if (oneCenter.isVisible()) {
+                if (bombOne.isVisible()) {
+                    status.setText("You found a bomb! You lost!");
+                    oneBelow.setEnabled(false);
+                    twoBelow.setEnabled(false);
+                    threeBelow.setEnabled(false);
+                    fourBelow.setEnabled(false);
+                    fiveBelow.setEnabled(false);
+                    sixBelow.setEnabled(false);
+                    sevenBelow.setEnabled(false);
+                    eightBelow.setEnabled(false);
+                    nineBelow.setEnabled(false);
+                } else if (!bombOne.isVisible() && oneCenter.isVisible()) {
                     status.setText("Congratulations, you found the marble!");
                     oneBelow.setEnabled(false);
                     twoBelow.setEnabled(false);
@@ -126,19 +180,31 @@ public class FindMarble {
                     sevenBelow.setEnabled(false);
                     eightBelow.setEnabled(false);
                     nineBelow.setEnabled(false);
-                } else if (!oneCenter.isVisible()) {
+                } else if (!bombOne.isVisible() && !oneCenter.isVisible()) {
                     status.setText("Try again!");
                 }
             }
         });
         this.twoBelow = new JButton();
         this.twoBelow.add(this.twoTop);
+        this.twoBelow.add(this.bombTwo);
         this.twoBelow.add(this.twoCenter);
         this.twoBelow.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 twoTop.setVisible(false);
-                if (twoCenter.isVisible()) {
+                if (bombTwo.isVisible()) {
+                    status.setText("You found a bomb! You lost!");
+                    oneBelow.setEnabled(false);
+                    twoBelow.setEnabled(false);
+                    threeBelow.setEnabled(false);
+                    fourBelow.setEnabled(false);
+                    fiveBelow.setEnabled(false);
+                    sixBelow.setEnabled(false);
+                    sevenBelow.setEnabled(false);
+                    eightBelow.setEnabled(false);
+                    nineBelow.setEnabled(false);
+                } else if (!bombTwo.isVisible() && twoCenter.isVisible()) {
                     status.setText("Congratulations, you found the marble!");
                     oneBelow.setEnabled(false);
                     twoBelow.setEnabled(false);
@@ -149,19 +215,31 @@ public class FindMarble {
                     sevenBelow.setEnabled(false);
                     eightBelow.setEnabled(false);
                     nineBelow.setEnabled(false);
-                } else if (!twoCenter.isVisible()) {
+                } else if (!bombTwo.isVisible() && !twoCenter.isVisible()) {
                     status.setText("Try again!");
                 }
             }
         });
         this.threeBelow = new JButton();
         this.threeBelow.add(this.threeTop);
+        this.threeBelow.add(this.bombThree);
         this.threeBelow.add(this.threeCenter);
         this.threeBelow.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 threeTop.setVisible(false);
-                if (threeCenter.isVisible()) {
+                if (bombThree.isVisible()) {
+                    status.setText("You found a bomb! You lost!");
+                    oneBelow.setEnabled(false);
+                    twoBelow.setEnabled(false);
+                    threeBelow.setEnabled(false);
+                    fourBelow.setEnabled(false);
+                    fiveBelow.setEnabled(false);
+                    sixBelow.setEnabled(false);
+                    sevenBelow.setEnabled(false);
+                    eightBelow.setEnabled(false);
+                    nineBelow.setEnabled(false);
+                } else if (!bombThree.isVisible() && threeCenter.isVisible()) {
                     status.setText("Congratulations, you found the marble!");
                     oneBelow.setEnabled(false);
                     twoBelow.setEnabled(false);
@@ -172,19 +250,31 @@ public class FindMarble {
                     sevenBelow.setEnabled(false);
                     eightBelow.setEnabled(false);
                     nineBelow.setEnabled(false);
-                } else if (!threeCenter.isVisible()) {
+                } else if (!bombThree.isVisible() && !threeCenter.isVisible()) {
                     status.setText("Try again!");
                 }
             }
         });
         this.fourBelow = new JButton();
         this.fourBelow.add(this.fourTop);
+        this.fourBelow.add(this.bombFour);
         this.fourBelow.add(this.fourCenter);
         this.fourBelow.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 fourTop.setVisible(false);
-                if (fourCenter.isVisible()) {
+                if (bombFour.isVisible()) {
+                    status.setText("You found a bomb! You lost!");
+                    oneBelow.setEnabled(false);
+                    twoBelow.setEnabled(false);
+                    threeBelow.setEnabled(false);
+                    fourBelow.setEnabled(false);
+                    fiveBelow.setEnabled(false);
+                    sixBelow.setEnabled(false);
+                    sevenBelow.setEnabled(false);
+                    eightBelow.setEnabled(false);
+                    nineBelow.setEnabled(false);
+                } else if (!bombFour.isVisible() && fourCenter.isVisible()) {
                     status.setText("Congratulations, you found the marble!");
                     oneBelow.setEnabled(false);
                     twoBelow.setEnabled(false);
@@ -195,19 +285,31 @@ public class FindMarble {
                     sevenBelow.setEnabled(false);
                     eightBelow.setEnabled(false);
                     nineBelow.setEnabled(false);
-                } else if (!fourCenter.isVisible()) {
+                } else if (!bombFour.isVisible() && !fourCenter.isVisible()) {
                     status.setText("Try again!");
                 }
             }
         });
         this.fiveBelow = new JButton();
         this.fiveBelow.add(this.fiveTop);
+        this.fiveBelow.add(this.bombFive);
         this.fiveBelow.add(this.fiveCenter);
         this.fiveBelow.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 fiveTop.setVisible(false);
-                if (fiveCenter.isVisible()) {
+                if (bombFive.isVisible()) {
+                    status.setText("You found a bomb! You lost!");
+                    oneBelow.setEnabled(false);
+                    twoBelow.setEnabled(false);
+                    threeBelow.setEnabled(false);
+                    fourBelow.setEnabled(false);
+                    fiveBelow.setEnabled(false);
+                    sixBelow.setEnabled(false);
+                    sevenBelow.setEnabled(false);
+                    eightBelow.setEnabled(false);
+                    nineBelow.setEnabled(false);
+                } else if (!bombFive.isVisible() && fiveCenter.isVisible()) {
                     status.setText("Congratulations, you found the marble!");
                     oneBelow.setEnabled(false);
                     twoBelow.setEnabled(false);
@@ -218,19 +320,31 @@ public class FindMarble {
                     sevenBelow.setEnabled(false);
                     eightBelow.setEnabled(false);
                     nineBelow.setEnabled(false);
-                } else if (!fiveCenter.isVisible()) {
+                } else if (!bombFive.isVisible() && !fiveCenter.isVisible()) {
                     status.setText("Try again!");
                 }
             }
         });
         this.sixBelow = new JButton();
         this.sixBelow.add(this.sixTop);
+        this.sixBelow.add(this.bombSix);
         this.sixBelow.add(this.sixCenter);
         this.sixBelow.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 sixTop.setVisible(false);
-                if (sixCenter.isVisible()) {
+                if (bombSix.isVisible()) {
+                    status.setText("You found a bomb! You lost!");
+                    oneBelow.setEnabled(false);
+                    twoBelow.setEnabled(false);
+                    threeBelow.setEnabled(false);
+                    fourBelow.setEnabled(false);
+                    fiveBelow.setEnabled(false);
+                    sixBelow.setEnabled(false);
+                    sevenBelow.setEnabled(false);
+                    eightBelow.setEnabled(false);
+                    nineBelow.setEnabled(false);
+                } else if (!bombSix.isVisible() && sixCenter.isVisible()) {
                     status.setText("Congratulations, you found the marble!");
                     oneBelow.setEnabled(false);
                     twoBelow.setEnabled(false);
@@ -241,19 +355,31 @@ public class FindMarble {
                     sevenBelow.setEnabled(false);
                     eightBelow.setEnabled(false);
                     nineBelow.setEnabled(false);
-                } else if (!sixCenter.isVisible()) {
+                } else if (!bombSix.isVisible() && !sixCenter.isVisible()) {
                     status.setText("Try again!");
                 }
             }
         });
         this.sevenBelow = new JButton();
         this.sevenBelow.add(this.sevenTop);
+        this.sevenBelow.add(this.bombSeven);
         this.sevenBelow.add(this.sevenCenter);
         this.sevenBelow.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 sevenTop.setVisible(false);
-                if (sevenCenter.isVisible()) {
+                if (bombSeven.isVisible()) {
+                    status.setText("You found a bomb! You lost!");
+                    oneBelow.setEnabled(false);
+                    twoBelow.setEnabled(false);
+                    threeBelow.setEnabled(false);
+                    fourBelow.setEnabled(false);
+                    fiveBelow.setEnabled(false);
+                    sixBelow.setEnabled(false);
+                    sevenBelow.setEnabled(false);
+                    eightBelow.setEnabled(false);
+                    nineBelow.setEnabled(false);
+                } else if (!bombSeven.isVisible() && sevenCenter.isVisible()) {
                     status.setText("Congratulations, you found the marble!");
                     oneBelow.setEnabled(false);
                     twoBelow.setEnabled(false);
@@ -264,19 +390,31 @@ public class FindMarble {
                     sevenBelow.setEnabled(false);
                     eightBelow.setEnabled(false);
                     nineBelow.setEnabled(false);
-                } else if (!sevenCenter.isVisible()) {
+                } else if (!bombSeven.isVisible() && !sevenCenter.isVisible()) {
                     status.setText("Try again!");
                 }
             }
         });
         this.eightBelow = new JButton();
         this.eightBelow.add(this.eightTop);
+        this.eightBelow.add(this.bombEight);
         this.eightBelow.add(this.eightCenter);
         this.eightBelow.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 eightTop.setVisible(false);
-                if (eightCenter.isVisible()) {
+                if (bombEight.isVisible()) {
+                    status.setText("You found a bomb! You lost!");
+                    oneBelow.setEnabled(false);
+                    twoBelow.setEnabled(false);
+                    threeBelow.setEnabled(false);
+                    fourBelow.setEnabled(false);
+                    fiveBelow.setEnabled(false);
+                    sixBelow.setEnabled(false);
+                    sevenBelow.setEnabled(false);
+                    eightBelow.setEnabled(false);
+                    nineBelow.setEnabled(false);
+                } else if (!bombEight.isVisible() && eightCenter.isVisible()) {
                     status.setText("Congratulations, you found the marble!");
                     oneBelow.setEnabled(false);
                     twoBelow.setEnabled(false);
@@ -287,19 +425,31 @@ public class FindMarble {
                     sevenBelow.setEnabled(false);
                     eightBelow.setEnabled(false);
                     nineBelow.setEnabled(false);
-                } else if (!eightCenter.isVisible()) {
+                } else if (!bombEight.isVisible() && !eightCenter.isVisible()) {
                     status.setText("Try again!");
                 }
             }
         });
         this.nineBelow = new JButton();
         this.nineBelow.add(this.nineTop);
+        this.nineBelow.add(this.bombNine);
         this.nineBelow.add(this.nineCenter);
         this.nineBelow.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 nineTop.setVisible(false);
-                if (nineCenter.isVisible()) {
+                if (bombNine.isVisible()) {
+                    status.setText("You found a bomb! You lost!");
+                    oneBelow.setEnabled(false);
+                    twoBelow.setEnabled(false);
+                    threeBelow.setEnabled(false);
+                    fourBelow.setEnabled(false);
+                    fiveBelow.setEnabled(false);
+                    sixBelow.setEnabled(false);
+                    sevenBelow.setEnabled(false);
+                    eightBelow.setEnabled(false);
+                    nineBelow.setEnabled(false);
+                } else if (!bombNine.isVisible() && nineCenter.isVisible()) {
                     status.setText("Congratulations, you found the marble!");
                     oneBelow.setEnabled(false);
                     twoBelow.setEnabled(false);
@@ -310,7 +460,7 @@ public class FindMarble {
                     sevenBelow.setEnabled(false);
                     eightBelow.setEnabled(false);
                     nineBelow.setEnabled(false);
-                } else if (!nineCenter.isVisible()) {
+                } else if (!bombNine.isVisible() && !nineCenter.isVisible()) {
                     status.setText("Try again!");
                 }
             }
@@ -380,5 +530,42 @@ public class FindMarble {
         } else if (temp >= 800 && temp < 900) {
             this.nineCenter.setVisible(true);
         }
+        int temp2 = randomizer.nextInt(900);
+        boolean keepGoing = true;
+        while (keepGoing) {
+            if (compareRandoms(temp, temp2)) {
+                temp2 = randomizer.nextInt(900);
+            } else if (!compareRandoms(temp, temp2)) {
+                keepGoing = false;
+            }
+        }
+        if (temp2 < 100) {
+            this.bombOne.setVisible(true);
+        } else if (temp2 >= 100 && temp2 < 200) {
+            this.bombTwo.setVisible(true);
+        } else if (temp2 >= 200 && temp2 < 300) {
+            this.bombThree.setVisible(true);
+        } else if (temp2 >= 300 && temp2 < 400) {
+            this.bombFour.setVisible(true);
+        } else if (temp2 >= 400 && temp2 < 500) {
+            this.bombFive.setVisible(true);
+        } else if (temp2 >= 500 && temp2 < 600) {
+            this.bombSix.setVisible(true);
+        } else if (temp2 >= 600 && temp2 < 700) {
+            this.bombSeven.setVisible(true);
+        } else if (temp2 >= 700 && temp2 < 800) {
+            this.bombEight.setVisible(true);
+        } else if (temp2 >= 800 && temp2 < 900) {
+            this.bombNine.setVisible(true);
+        }
+    }
+
+    private boolean compareRandoms(int one, int two) {
+        String first = String.valueOf(one);
+        String second = String.valueOf(two);
+        if (first.substring(0, 1).equals(second.substring(0, 1))) {
+            return true;
+        }
+        return false;
     }
 }
